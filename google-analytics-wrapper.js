@@ -60,7 +60,7 @@ window.Becklyn = (function (Becklyn, window, document) {
     function readActiveStateFromCookie ()
     {
         // active = we didn't find the cookie
-        return -1 === document.cookie.indexOf(settings.parameter + "=true;");
+        return -1 === document.cookie.indexOf(settings.parameter + "=true");
     }
 
 
