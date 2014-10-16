@@ -14,14 +14,12 @@ window.Becklyn = (function (Becklyn, window, document) {
      * Registers the universal analytics code
      *
      * @param code {String}
-     * @param domain {String}
      */
-    function init (code, domain)
+    function init (code)
     {
         // set settings
         settings           = {};
         settings.code      = code;
-        settings.domain    = domain;
         settings.parameter = 'ga-disable-' + code;
         settings.active    = readActiveStateFromCookie();
 
@@ -46,7 +44,7 @@ window.Becklyn = (function (Becklyn, window, document) {
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', settings.code, settings.domain);
+        ga('create', settings.code, 'auto');
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
     }

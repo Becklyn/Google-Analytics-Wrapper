@@ -14,7 +14,7 @@ Download the JavaScript file in the `dist/` directory or install it using bower 
 At first you need to initialize the API:
 
 ```javascript
-Becklyn.Google_Analytics.init("UA-XXXXXXX-X", "example.org");
+Becklyn.Google_Analytics.init("UA-XXXXXXX-X");
 ```
 
 The api is very simple:
