@@ -13,12 +13,17 @@ Download the JavaScript file in the `dist/` directory or install it using bower 
 ## Usage
 At first you need to initialize the API:
 
-```javascript
-Becklyn.Google_Analytics.init("UA-XXXXXXX-X");
+```js
+Becklyn.Google_Analytics.init(code [, initCallback]);
 ```
 
-The api is very simple:
-```javascript
+Parameters:
+*   `code` (required): the Google Analytics tracking code (in the form of `"UA-XXXXXXX-X"`) 
+*   `initCallback` (optional): a function, which is called when initializing the google analytics function (receives `ga` as only parameter)
+
+### API
+The API is very simple:
+```js
 /**
  * Toggles the active state.
  * It sets the API inactive, when it was active and vice versa.
