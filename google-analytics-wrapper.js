@@ -13,9 +13,10 @@ window.Becklyn = (function (Becklyn, window, document) {
     /**
      * Registers the universal analytics code
      *
-     * @param code {String}
+     * @param {String} code
+     * @param {function(*)} [initCallback] initialization callback - receives ga as parameter and can be used to add custom parameters.
      */
-    function init (code)
+    function init (code, initCallback)
     {
         // set settings
         settings           = {};
@@ -30,14 +31,16 @@ window.Becklyn = (function (Becklyn, window, document) {
         setGoogleAnalyticsTrackingState();
 
         // load the google analytics sdk
-        loadGoogleAnalytics();
+        loadGoogleAnalytics(initCallback);
     }
 
 
     /**
      * Load google analytics
+     *
+     * @param {function(*)} [initCallback]
      */
-    function loadGoogleAnalytics ()
+    function loadGoogleAnalytics (initCallback)
     {
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -45,6 +48,12 @@ window.Becklyn = (function (Becklyn, window, document) {
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', settings.code, 'auto');
+
+        if (typeof initCallback === 'function')
+        {
+            initCallback(ga);
+        }
+
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
     }
