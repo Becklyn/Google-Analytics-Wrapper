@@ -1,5 +1,16 @@
-window.Becklyn = (function (Becklyn, window, document) {
+(function (root, factory) {
+    if (typeof exports === 'object') {
+        module.exports = factory(window, document);
+    } else {
 
+        if (!window.Becklyn)
+        {
+            window.Becklyn = {};
+        }
+        window.Becklyn.Google_Analytics = factory(window, document);
+    }
+
+}(this, function (window, document) {
     "use strict";
 
     /**
@@ -149,12 +160,9 @@ window.Becklyn = (function (Becklyn, window, document) {
 
 
     // Export API
-    Becklyn.Google_Analytics = {
+    return {
         init:         init,
         toggleActive: toggleActive,
         isActive:     isActive
     };
-
-    return Becklyn;
-
-})(window.Becklyn || {}, window, document);
+}));
