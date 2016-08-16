@@ -1,6 +1,14 @@
 Google Analytics Wrapper
 ========================
 
+```
+==========
+DEPRECATED
+==========
+
+This project is deprecated. Please directly embed the GA code or use a wrapper function (like in the BecklynRadBundle (https://github.com/Becklyn/BecklynRadBundle)) for the embedding.
+```
+
 A google analytics wrapper which helps to be compatible with German data privacy laws.
 
 It only supports [universal tracking][universal-tracking].
